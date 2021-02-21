@@ -1,4 +1,4 @@
-const formatDayLength = require("../formatDayLength");
+import formatDayLength from "../../src/formatDayLength";
 
 describe("formatDayLength()", () => {
   it("long day", () => {

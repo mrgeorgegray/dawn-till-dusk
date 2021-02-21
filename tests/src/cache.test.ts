@@ -1,9 +1,9 @@
-const { cacheResponse, diskCache } = require("../cache");
+import { cacheResponse, diskCache } from "../../src/cache";
 
 describe("cacheResponse()", () => {
   describe("when cache disabled", () => {
     beforeEach(() => {
-      process.env.DISABLE_CACHE = true;
+      process.env.DISABLE_CACHE = "true";
     });
 
     afterEach(() => {

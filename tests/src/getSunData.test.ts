@@ -1,10 +1,10 @@
-const axios = require("axios");
-const MockAdapter = require("axios-mock-adapter");
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
 
-const { getSunData, createUrl } = require("../getSunData");
-const sunData = require("../mock/sunData.json");
+import { getSunData, createUrl } from "../../src/getSunData";
+import sunData from "../mock/sunData.json";
 
-process.env.DISABLE_CACHE = true;
+process.env.DISABLE_CACHE = "true";
 
 describe("getSunData()", () => {
   const lat = 39.03;
@@ -12,7 +12,7 @@ describe("getSunData()", () => {
   const date = "2021-08-02";
   const mockLog = jest.fn();
   const url = createUrl(lat, lon, date);
-  let mock;
+  let mock: MockAdapter;
 
   beforeEach(() => {
     mock = new MockAdapter(axios);

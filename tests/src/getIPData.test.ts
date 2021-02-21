@@ -1,14 +1,14 @@
-const axios = require("axios");
-const MockAdapter = require("axios-mock-adapter");
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
 
-const { getIPData, url } = require("../getIPData");
-const ipData = require("../mock/ipData.json");
+import { getIPData, url } from "../../src/getIPData";
+import ipData from "../mock/ipData.json";
 
-process.env.DISABLE_CACHE = true;
+process.env.DISABLE_CACHE = "true";
 
 describe("getIPData()", () => {
   const mockLog = jest.fn();
-  let mock;
+  let mock: MockAdapter;
 
   beforeEach(() => {
     mock = new MockAdapter(axios);
