@@ -4,10 +4,10 @@
   "description": "See sunrise & sunset times 'from dawn till dusk' on your command line",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write \"src/**/*.js\"",
-    "lint": "eslint .",
-    "test": "TZ=utc jest",
-    "test:coverage": "jest --coverage"
+    "format": "cross-env prettier --write \"src/**/*.js\"",
+    "lint": "cross-env eslint .",
+    "test": "cross-env TZ=utc jest",
+    "test:coverage": "cross-env TZ=utc jest --coverage"
   },
   "author": "George Gray",
   "license": "MIT",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.19.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-prettier": "^3.3.1",
