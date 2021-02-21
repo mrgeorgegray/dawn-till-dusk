@@ -1,9 +1,10 @@
-const Table = require("cli-table3");
+import Table from "cli-table3";
 
-const formatTime = require("./formatTime");
-const formatDayLength = require("./formatDayLength");
+import formatTime from "./formatTime";
+import formatDayLength from "./formatDayLength";
+import { SunData } from "./getSunData";
 
-const drawTable = (data) => {
+export default (data: SunData): string => {
   const table = new Table({
     style: { border: ["gray"] },
   });
@@ -25,5 +26,3 @@ const drawTable = (data) => {
 
   return table.toString();
 };
-
-module.exports = drawTable;

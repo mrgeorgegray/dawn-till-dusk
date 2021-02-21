@@ -1,4 +1,4 @@
-const formatTime = require("../formatTime");
+import formatTime from "../../src/formatTime";
 
 describe("formatTime()", () => {
   it("returns toLocaleTimeString()", () => {
