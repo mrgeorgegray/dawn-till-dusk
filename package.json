@@ -6,7 +6,7 @@
   "scripts": {
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "eslint .",
-    "test": "jest",
+    "test": "TZ=utc jest",
     "test:coverage": "jest --coverage"
   },
   "author": "George Gray",

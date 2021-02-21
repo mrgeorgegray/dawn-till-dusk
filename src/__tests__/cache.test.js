@@ -1,4 +1,4 @@
-const { cacheResponse, diskCache } = require("../cacheResponse");
+const { cacheResponse, diskCache } = require("../cache");
 
 describe("cacheResponse()", () => {
   describe("when cache disabled", () => {
