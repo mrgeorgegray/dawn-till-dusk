@@ -9,8 +9,7 @@ const isDate = (dateString: string): boolean => {
     return false;
   }
 
-  const isValidDate = Date.parse(dateString);
-  return isNaN(isValidDate) ? false : true;
+  return isNaN(Date.parse(dateString)) ? false : true;
 };
 
 export default isDate;

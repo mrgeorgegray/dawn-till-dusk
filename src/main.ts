@@ -24,7 +24,7 @@ const main: ({ clean, date, debug }: Options) => Promise<string> = async ({
   }
 
   log("[Options]:");
-  log({ debug, date });
+  log({ clean, date, debug });
   log("");
 
   if (!isDate(date)) {

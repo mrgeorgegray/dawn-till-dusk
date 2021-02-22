@@ -4,7 +4,7 @@ import formatTime from "./formatTime";
 import formatDayLength from "./formatDayLength";
 import { SunData } from "./getSunData";
 
-export default ({
+const drawTable = ({
   date,
   civil_twilight_begin,
   sunrise,
@@ -33,3 +33,5 @@ export default ({
 
   return table.toString();
 };
+
+export default drawTable;
