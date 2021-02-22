@@ -18,6 +18,12 @@ const args = yargs
     description: "Show help",
     default: false,
   })
+  .option("clean", {
+    alias: "c",
+    type: "boolean",
+    description: "Clear data cache",
+    default: false,
+  })
   .option("date", {
     alias: "d",
     type: "string",
@@ -32,8 +38,14 @@ const args = yargs
   }).argv;
 
 void (async () => {
-  await main({
-    debug: args.logging,
-    date: args.date,
-  });
+  try {
+    const output = await main({
+      clean: args.clean,
+      date: args.date,
+      debug: args.logging,
+    });
+    console.log(output);
+  } catch (error) {
+    console.log(error);
+  }
 })();

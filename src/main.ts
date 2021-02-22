@@ -1,17 +1,20 @@
+import { diskCache } from "./cache";
 import drawTable from "./drawTable";
 import { getIPData } from "./getIPData";
 import { getSunData } from "./getSunData";
 
 export interface Options {
-  debug: boolean;
+  clean: boolean;
   date: string;
+  debug: boolean;
 }
 
 export type Log = (message: unknown) => void;
 
-const main: ({ debug, date }: Options) => Promise<void> = async ({
-  debug,
+const main: ({ clean, date, debug }: Options) => Promise<string> = async ({
+  clean,
   date,
+  debug,
 }: Options) => {
   function log(message: unknown): void {
     if (debug) {
@@ -23,12 +26,21 @@ const main: ({ debug, date }: Options) => Promise<void> = async ({
   log({ debug, date });
   log("");
 
-  try {
-    const { lat, lon } = await getIPData(log);
-    const sunData = await getSunData(lat, lon, date, log);
-    console.log(drawTable(sunData));
-  } catch (error) {
-    console.log(error);
+  if (clean) {
+    try {
+      await diskCache.reset();
+      return "Cache is cleared";
+    } catch (error) {
+      return "Error clearing cache";
+    }
+  } else {
+    try {
+      const { lat, lon } = await getIPData(log);
+      const sunData = await getSunData(lat, lon, date, log);
+      return drawTable(sunData);
+    } catch (error) {
+      throw Error(error);
+    }
   }
 };
 

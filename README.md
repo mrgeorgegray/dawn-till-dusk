@@ -23,6 +23,7 @@ Commands:
 Options:
   --help, -h     Show help                            [boolean] [default: false]
   --version, -v  Show version number                                   [boolean]
+  --clean, -c    Clear data cache                     [boolean] [default: false]
   --date, -d     Search by date                      [string] [default: "today"]
   --logging, -l  Output extra logging info            [boolean] [default: false]
 
