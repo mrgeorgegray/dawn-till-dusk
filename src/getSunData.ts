@@ -47,10 +47,11 @@ export const fetchSunData = async (
   log: Log
 ): Promise<SunData> => {
   try {
-    log("fetchSunData...");
+    log("Fetching Sun data...");
     const url = createUrl(lat, lon, date);
     const response = await axios.get<SunDataResponse>(url);
-    log("response:", response.data);
+    log(response.data);
+    log("");
 
     return {
       date: date,
@@ -61,7 +62,8 @@ export const fetchSunData = async (
       day_length: response.data.results.day_length,
     };
   } catch (error) {
-    throw new Error("Failed to fetchSunData");
+    log(error);
+    throw new Error("Failed to fetch Sun data");
   }
 };
 

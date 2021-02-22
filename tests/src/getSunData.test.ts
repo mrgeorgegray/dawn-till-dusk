@@ -27,7 +27,7 @@ describe("getSunData()", () => {
     mock.onGet(url).reply(500, "Error");
 
     await expect(getSunData(lat, lon, date, mockLog)).rejects.toThrowError(
-      "Failed to fetchSunData"
+      "Failed to fetch Sun data"
     );
   });
 
@@ -44,7 +44,7 @@ describe("getSunData()", () => {
       day_length: sunData.results.day_length,
     });
 
-    expect(mockLog).toHaveBeenNthCalledWith(1, "fetchSunData...");
-    expect(mockLog).toHaveBeenNthCalledWith(2, "response:", sunData);
+    expect(mockLog).toHaveBeenNthCalledWith(1, "Fetching Sun data...");
+    expect(mockLog).toHaveBeenNthCalledWith(2, sunData);
   });
 });
