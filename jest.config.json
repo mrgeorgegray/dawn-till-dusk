@@ -1,6 +1,14 @@
 {
+  "rootDir": "./",
+  "collectCoverageFrom": [
+    "<rootDir>/src/**/*.ts",
+    "!<rootDir>/src/index.ts",
+    "!**/*.d.ts",
+    "!**/node_modules/**",
+    "!**/vendor/**"
+  ],
   "testMatch": [
-    "<rootDir>/tests/**/*(*.)@(spec|test).{ts,tsx}"
+    "<rootDir>/tests/**/*(*.)@(spec|test).ts"
   ],
   "transform": {
     "^.+\\.(ts|tsx)$": "ts-jest"

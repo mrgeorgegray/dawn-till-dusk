@@ -2,6 +2,7 @@ import { diskCache } from "./cache";
 import drawTable from "./drawTable";
 import { getIPData } from "./getIPData";
 import { getSunData } from "./getSunData";
+import isDate from "./isDate";
 
 export interface Options {
   clean: boolean;
@@ -23,8 +24,12 @@ const main: ({ clean, date, debug }: Options) => Promise<string> = async ({
   }
 
   log("[Options]:");
-  log({ debug, date });
+  log({ clean, date, debug });
   log("");
+
+  if (!isDate(date)) {
+    return "Date must be a valid date with format YYYY-MM-DD";
+  }
 
   if (clean) {
     try {

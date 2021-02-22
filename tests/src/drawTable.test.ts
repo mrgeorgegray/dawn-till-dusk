@@ -1,11 +1,11 @@
 import drawTable from "../../src/drawTable";
-import sunData from "../mock/sunData";
+import storedSunData from "../mock/storedSunData";
 
 describe("drawTable()", () => {
-  const table = drawTable(sunData);
+  const table = drawTable(storedSunData);
 
   it("contains the title", () => {
-    expect(table).toContain(`dawn-till-dusk for '${sunData.date}'`);
+    expect(table).toContain(`dawn-till-dusk for '${storedSunData.date}'`);
   });
 
   it("contains the headings", () => {

@@ -4,7 +4,14 @@ import formatTime from "./formatTime";
 import formatDayLength from "./formatDayLength";
 import { SunData } from "./getSunData";
 
-export default (data: SunData): string => {
+const drawTable = ({
+  date,
+  civil_twilight_begin,
+  sunrise,
+  sunset,
+  civil_twilight_end,
+  day_length,
+}: SunData): string => {
   const table = new Table({
     style: { border: ["gray"] },
   });
@@ -14,15 +21,17 @@ export default (data: SunData): string => {
       {
         colSpan: 3,
         hAlign: "center",
-        content: `dawn-till-dusk for '${data.date}'`,
+        content: `dawn-till-dusk for '${date}'`,
       },
     ],
-    { "🌅": ["Dawn", formatTime(data.civil_twilight_begin)] },
-    { "😎": ["Sunrise", formatTime(data.sunrise)] },
-    { "🌇": ["Sunset", formatTime(data.sunset)] },
-    { "🧛": ["Dusk", formatTime(data.civil_twilight_end)] },
-    { "⏱": ["Length", formatDayLength(data.day_length)] }
+    { "🌅": ["Dawn", formatTime(civil_twilight_begin)] },
+    { "😎": ["Sunrise", formatTime(sunrise)] },
+    { "🌇": ["Sunset", formatTime(sunset)] },
+    { "🧛": ["Dusk", formatTime(civil_twilight_end)] },
+    { "⏱": ["Length", formatDayLength(day_length)] }
   );
 
   return table.toString();
 };
+
+export default drawTable;
