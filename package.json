@@ -1,30 +1,41 @@
 {
-  "name": "@mrgeorgegray/dawn-till-dusk",
+  "name": "dawn-till-dusk",
   "version": "0.0.1",
   "description": "See sunrise & sunset times 'from dawn till dusk' on your command line",
-  "keywords": [
-    "sunrise"
-  ],
+  "main": "lib/index.js",
   "engines": {
     "node": "^12 || ^14 || ^15"
   },
-  "main": "lib/index.js",
-  "scripts": {
-    "build": "cross-env tsc -p tsconfig.build.json && chmod +x lib/index.js",
-    "prepare": "cross-env npm run build",
-    "prepublishOnly": "cross-env npm test && npm run lint",
-    "dtd": "cross-env ./lib/index.js",
-    "format": "cross-env prettier --write \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "cross-env eslint .",
-    "test": "cross-env TZ=utc jest",
-    "test:coverage": "cross-env TZ=utc jest --coverage"
-  },
-  "author": "George Gray",
-  "license": "MIT",
   "preferGlobal": true,
   "bin": {
     "dtd": "lib/index.js"
   },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && chmod +x lib/index.js",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "dtd": "./lib/index.js",
+    "format": "prettier --write \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "eslint .",
+    "test": "cross-env TZ=utc jest",
+    "test:coverage": "cross-env TZ=utc jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mrgeorgegray/dawn-till-dusk"
+  },
+  "keywords": [
+    "sunrise"
+  ],
+  "author": "George Gray",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrgeorgegray/dawn-till-dusk/issues"
+  },
+  "homepage": "https://github.com/mrgeorgegray/dawn-till-dusk#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "cache-manager": "^3.4.0",
@@ -48,8 +59,7 @@
     "ts-jest": "^26.5.1",
     "typescript": "^4.1.5"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/mrgeorgegray/dawn-till-dusk"
-  }
+  "files": [
+    "lib/**/*"
+  ]
 }

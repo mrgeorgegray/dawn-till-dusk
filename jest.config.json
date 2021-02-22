@@ -2,6 +2,7 @@
   "rootDir": "./",
   "collectCoverageFrom": [
     "<rootDir>/src/**/*.ts",
+    "!<rootDir>/src/index.ts",
     "!**/*.d.ts",
     "!**/node_modules/**",
     "!**/vendor/**"
