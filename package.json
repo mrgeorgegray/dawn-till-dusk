@@ -41,11 +41,13 @@
     "cache-manager": "^3.4.0",
     "cache-manager-fs-hash": "^0.0.9",
     "cli-table3": "^0.6.0",
+    "node-emoji": "^1.10.0",
     "yargs": "^15.4.1"
   },
   "devDependencies": {
     "@types/cache-manager": "^3.4.0",
     "@types/jest": "^26.0.20",
+    "@types/node-emoji": "^1.8.1",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
     "axios-mock-adapter": "^1.19.0",

@@ -1,4 +1,5 @@
 import Table from "cli-table3";
+import emoji from "node-emoji";
 
 import formatTime from "./formatTime";
 import formatDayLength from "./formatDayLength";
@@ -16,6 +17,13 @@ const drawTable = ({
     style: { border: ["gray"] },
   });
 
+  const onMissing = () => "*";
+  const dawnEmoji = emoji.emojify(":sunrise:", onMissing);
+  const sunriseEmoji = emoji.emojify(":sunglasses:", onMissing);
+  const sunsetEmoji = emoji.emojify(":city_sunset:", onMissing);
+  const duskEmoji = emoji.emojify(":vampire:", onMissing);
+  const lengthEmoji = emoji.emojify(":stopwatch:", onMissing);
+
   table.push(
     [
       {
@@ -24,11 +32,11 @@ const drawTable = ({
         content: `dawn-till-dusk for '${date}'`,
       },
     ],
-    { "🌅": ["Dawn", formatTime(civil_twilight_begin)] },
-    { "😎": ["Sunrise", formatTime(sunrise)] },
-    { "🌇": ["Sunset", formatTime(sunset)] },
-    { "🧛": ["Dusk", formatTime(civil_twilight_end)] },
-    { "⏱": ["Length", formatDayLength(day_length)] }
+    { [dawnEmoji]: ["Dawn", formatTime(civil_twilight_begin)] },
+    { [sunriseEmoji]: ["Sunrise", formatTime(sunrise)] },
+    { [sunsetEmoji]: ["Sunset", formatTime(sunset)] },
+    { [duskEmoji]: ["Dusk", formatTime(civil_twilight_end)] },
+    { [lengthEmoji]: ["Length", formatDayLength(day_length)] }
   );
 
   return table.toString();
