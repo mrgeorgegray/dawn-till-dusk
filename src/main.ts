@@ -7,19 +7,21 @@ export interface Options {
   date: string;
 }
 
-export type Log = (message: string, optionalParams?: unknown) => void;
+export type Log = (message: unknown) => void;
 
 const main: ({ debug, date }: Options) => Promise<void> = async ({
   debug,
   date,
 }: Options) => {
-  function log(message: string, ...optionalParams: any): void {
+  function log(message: unknown): void {
     if (debug) {
-      console.info(message, ...optionalParams);
+      console.info(message);
     }
   }
 
-  log("Options:", { debug, date });
+  log("[Options]:");
+  log({ debug, date });
+  log("");
 
   try {
     const { lat, lon } = await getIPData(log);

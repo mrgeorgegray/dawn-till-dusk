@@ -23,7 +23,7 @@ describe("getIPData()", () => {
     mock.onGet(url).reply(500, "Error");
 
     await expect(getIPData(mockLog)).rejects.toThrowError(
-      "Failed to fetchIPData"
+      "Failed to fetch IP data"
     );
   });
 
@@ -36,7 +36,7 @@ describe("getIPData()", () => {
       lon: ipData.lon,
     });
 
-    expect(mockLog).toHaveBeenNthCalledWith(1, "fetchIPData...");
-    expect(mockLog).toHaveBeenNthCalledWith(2, "response:", ipData);
+    expect(mockLog).toHaveBeenNthCalledWith(1, "Fetching IP data...");
+    expect(mockLog).toHaveBeenNthCalledWith(2, ipData);
   });
 });

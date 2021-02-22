@@ -34,16 +34,18 @@ export interface IPData {
 
 export const fetchIPData = async (log: Log): Promise<IPData> => {
   try {
-    log("fetchIPData...");
+    log("Fetching IP data...");
     const response = await axios.get<IPDataResponse>(url);
-    log("response:", response.data);
+    log(response.data);
+    log("");
 
     return {
       lat: response.data.lat,
       lon: response.data.lon,
     };
   } catch (error) {
-    throw new Error("Failed to fetchIPData");
+    log(error);
+    throw new Error("Failed to fetch IP data");
   }
 };
 
