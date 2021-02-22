@@ -32,7 +32,7 @@ jobs:
           github-token: ${{ secrets.github_token }}
           parallel: true
 
-    finish:
+  finish:
     needs: test
     runs-on: ubuntu-latest
     steps:
