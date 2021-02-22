@@ -23,4 +23,21 @@ jobs:
       - name: Lint
         run: npm run lint
       - name: Test
-        run: npm test
+        run: npm test:coverage
+      - name: Coveralls Parallel
+        uses: coverallsapp/github-action@v1.1.1
+        env:
+          COVERALLS_FLAG_NAME: run-${{ matrix.test_number }}
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel: true
+
+    finish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coveralls finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel-finished: true

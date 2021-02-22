@@ -2,6 +2,12 @@
 
 A simple tool to display the sunrise, sunset and day length based on your location from the comfort of the command line.
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/641c466fdf607d9417ee/maintainability)](https://codeclimate.com/github/mrgeorgegray/dawn-till-dusk/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/mrgeorgegray/dawn-till-dusk/badge.svg?branch=main)](https://coveralls.io/github/mrgeorgegray/dawn-till-dusk?branch=main)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/mrgeorgegray/dawn-till-dusk/Tests/master)
+![npm](https://img.shields.io/npm/v/dawn-till-dusk)
+![NPM](https://img.shields.io/npm/l/dawn-till-dusk)
+
 ### Example output
 
 ![example output](./example.jpg)
