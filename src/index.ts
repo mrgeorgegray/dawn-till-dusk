@@ -27,8 +27,7 @@ const args = yargs
   .option("date", {
     alias: "d",
     type: "string",
-    description: "Search by date",
-    default: "today",
+    description: "Search by date, format 'YYYY-MM-DD'",
   })
   .option("logging", {
     alias: "l",
@@ -41,7 +40,7 @@ void (async () => {
   try {
     const output = await main({
       clean: args.clean,
-      date: args.date,
+      date: args.date || new Date().toISOString().split("T")[0],
       debug: args.logging,
     });
     console.log(output);
