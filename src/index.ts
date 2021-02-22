@@ -28,6 +28,7 @@ const args = yargs
     alias: "d",
     type: "string",
     description: "Search by date, format 'YYYY-MM-DD'",
+    default: "Today",
   })
   .option("logging", {
     alias: "l",
