@@ -1,6 +1,6 @@
 {
   "name": "dawn-till-dusk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "See sunrise & sunset times 'from dawn till dusk' on your command line",
   "main": "lib/index.js",
   "engines": {
