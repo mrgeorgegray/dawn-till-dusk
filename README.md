@@ -15,7 +15,7 @@ A simple tool to display the sunrise, sunset and day length based on your locati
 ### Installation
 
 ```
-npm i -g @mrgeorgegray/dawn-till-dusk
+npm i -g dawn-till-dusk
 ```
 
 ### Usage
